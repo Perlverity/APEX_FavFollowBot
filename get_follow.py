@@ -1,5 +1,6 @@
 import json, config
 import tweepy
+from time import sleep
 
 CK = config.CONSUMER_KEY
 CS = config.CONSUMER_SECRET
