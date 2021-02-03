@@ -1,11 +1,13 @@
-import json, config
-import tweepy
+import json
 from time import sleep
 
-CK = config.CONSUMER_KEY
-CS = config.CONSUMER_SECRET
-AT = config.ACCESS_TOKEN
-ATS = config.ACCESS_TOKEN_SECRET
+import settings
+import tweepy
+
+CK = settings.CONSUMER_KEY
+CS = settings.CONSUMER_SECRET
+AT = settings.ACCESS_TOKEN
+ATS = settings.ACCESS_TOKEN_SECRET
 
 auth = tweepy.OAuthHandler(CK, CS)
 auth.set_access_token(AT, ATS)
