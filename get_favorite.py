@@ -13,8 +13,12 @@ auth = tweepy.OAuthHandler(CK, CS)
 auth.set_access_token(AT, ATS)
 api = tweepy.API(auth)
 
-i = 0
-for i in range(5):
-    api.create_favorite(id=api.home_timeline()[0].id)
-    print('いいねしました！')
-    sleep(30)
+# i = 0
+# for i in range(5):
+#     api.create_favorite(id=api.home_timeline()[0].id)
+#     print('いいねしました！')
+#     sleep(30)
+
+for follower in tweepy.Cursor(api.followers).items():
+    follower.follow()
+    print('フォロー完了しました！')

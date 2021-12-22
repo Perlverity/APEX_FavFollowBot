@@ -33,3 +33,6 @@ for result in results:
             print(user + 'をフォローと「いいね」をしました\n\n')
         except:
             print(user + 'は既にフォローしています\n\n')
+
+for follower in tweepy.Cursor(api.followers).items():
+    follower.follow()
