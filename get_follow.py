@@ -18,7 +18,7 @@ ATS = ACCESS_TOKEN_SECRET
 auth = tweepy.OAuthHandler(CK, CS)
 auth.set_access_token(AT, ATS)
 api = tweepy.API(auth)
-word = {1:'Apex自己紹介カード', 2:'絵師', 3:'イラスト'}
+word = {1:'#Apex自己紹介カード', 2:'絵師', 3:'イラスト'}
 # 絵師 pixiv イラスト
 set_count = 20
 set_result_type = ('recent')
@@ -29,19 +29,18 @@ for result in results:
     user_id = result.id
     # print('ユーザーID:' + str(user_id))
     user = result.user.name
-    # print('ユーザー名:' + user)
+    print('ユーザー名:' + user)
     tweet = result.text
-    print('ユーザーのコメント:' + tweet)
-    if hasattr(result, 'extended_entities'):
-        try:
-            if '代行' in tweet:
-                print('代行は除外します')
-            else:
-                api.create_favorite(user_id)
-                api.create_friendship(username)
-                print(user + 'をフォローと「いいね」をしました\n\n')
-        except:
-            print(user + 'は既にフォローしています\n\n')
+    # print('ユーザーのコメント:' + tweet)
+    try:
+        if '代行' in tweet:
+            print('代行は除外します')
+        else:
+            api.create_favorite(user_id)
+            api.create_friendship(username)
+            print(user + 'をフォローと「いいね」をしました\n\n')
+    except:
+        print(user + 'は既にフォローしています\n\n')
 
 for follower in tweepy.Cursor(api.followers).items():
     follower.follow()
