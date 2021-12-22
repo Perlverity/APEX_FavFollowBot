@@ -3,6 +3,12 @@ from time import sleep
 
 # import settings
 import tweepy
+import os
+
+CONSUMER_KEY = os.environ['CONSUMER_KEY']
+CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
+ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
+ACCESS_TOKEN_SECRET = os.environ['ACCESS_TOKEN_SECRET']
 
 CK = CONSUMER_KEY
 CS = CONSUMER_SECRET
