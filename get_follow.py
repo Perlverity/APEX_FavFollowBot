@@ -34,7 +34,7 @@ for result in results:
     tweet = result.text
     # print('ユーザーのコメント:' + tweet)
     try:
-        if any(map(tweet.__contains__, ('代行', 'チート', 'コーチング', 'グリッチ'))):
+        if any(map(tweet.__contains__, ('代行', 'チート', 'コーチング', 'グリッチ', 'ban', 'hack'))):
             print('代行・チートは除外します')
         else:
             api.create_favorite(user_id)
