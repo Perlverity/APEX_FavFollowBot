@@ -4,6 +4,7 @@ from time import sleep
 # import settings
 import tweepy
 import os
+import re
 
 CONSUMER_KEY = os.environ['CONSUMER_KEY']
 CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
@@ -18,7 +19,7 @@ ATS = ACCESS_TOKEN_SECRET
 auth = tweepy.OAuthHandler(CK, CS)
 auth.set_access_token(AT, ATS)
 api = tweepy.API(auth)
-word = {1:'#Apex自己紹介カード', 2:'絵師', 3:'イラスト'}
+word = {1: '#Apex自己紹介カード', 2: '絵師', 3: 'イラスト'}
 # 絵師 pixiv イラスト
 set_count = 20
 set_result_type = ('recent')
@@ -33,8 +34,8 @@ for result in results:
     tweet = result.text
     # print('ユーザーのコメント:' + tweet)
     try:
-        if '代行' in tweet:
-            print('代行は除外します')
+        if any(map(tweet.__contains__, ('代行', 'チート', 'コーチング', 'グリッチ'))):
+            print('代行・チートは除外します')
         else:
             api.create_favorite(user_id)
             api.create_friendship(username)
