@@ -21,7 +21,7 @@ api = tweepy.API(auth)
 word = {1:'Apex自己紹介カード', 2:'絵師', 3:'イラスト'}
 # 絵師 pixiv イラスト
 set_count = 20
-set_result_type = ('recent.')
+set_result_type = ('recent')
 results = api.search(q=word[1], count=set_count, result_type=set_result_type)
 
 for result in results:
