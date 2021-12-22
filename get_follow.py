@@ -31,12 +31,15 @@ for result in results:
     user = result.user.name
     # print('ユーザー名:' + user)
     tweet = result.text
-    # print('ユーザーのコメント:' + tweet)
+    print('ユーザーのコメント:' + tweet)
     if hasattr(result, 'extended_entities'):
         try:
-            api.create_favorite(user_id)
-            api.create_friendship(username)
-            print(user + 'をフォローと「いいね」をしました\n\n')
+            if '代行' in tweet:
+                print('代行は除外します')
+            else:
+                api.create_favorite(user_id)
+                api.create_friendship(username)
+                print(user + 'をフォローと「いいね」をしました\n\n')
         except:
             print(user + 'は既にフォローしています\n\n')
 
