@@ -1,5 +1,6 @@
 import json
 from time import sleep
+import time
 
 # import settings
 import tweepy
@@ -42,6 +43,8 @@ for result in results:
             print(user + 'を「いいね」をしました\n\n')
         except:
             print(user + 'はいいねできませんでした\n')
+
+    time.sleep(3)
 
         # try:
         #     api.create_friendship(username)
