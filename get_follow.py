@@ -38,8 +38,9 @@ for result in results:
             print('代行・チートは除外します')
         else:
             api.create_favorite(user_id)
+            print(user + 'を「いいね」をしました\n\n')
             api.create_friendship(username)
-            print(user + 'をフォローと「いいね」をしました\n\n')
+            print(user + 'をフォローをしました\n\n')
     except:
         print(user + 'は既にフォローしています\n\n')
 
