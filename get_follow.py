@@ -43,11 +43,11 @@ for result in results:
         except:
             print(user + 'はいいねできませんでした\n')
 
-        try:
-            api.create_friendship(username)
-            print(user + 'をフォローをしました\n\n')
-        except:
-            print(user + 'は既にフォローしています\n')
+        # try:
+        #     api.create_friendship(username)
+        #     print(user + 'をフォローをしました\n\n')
+        # except:
+        #     print(user + 'は既にフォローしています\n')
 
-for follower in tweepy.Cursor(api.followers).items():
-    follower.follow()
+# for follower in tweepy.Cursor(api.followers).items():
+#     follower.follow()
