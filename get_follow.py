@@ -24,7 +24,7 @@ word = {1: '#Apex自己紹介カード', 2: '絵師', 3: 'イラスト'}
 # 絵師 pixiv イラスト
 set_count = 5
 set_result_type = ('recent')
-results = api.search(q=word[1], count=set_count, result_type=set_result_type)
+results = api.search(q=word[1], count=set_count, result_type=set_result_type, lang='ja')
 
 for result in results:
     username = result.user._json['screen_name']
