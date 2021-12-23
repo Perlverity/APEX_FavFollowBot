@@ -33,16 +33,21 @@ for result in results:
     print('ユーザー名:' + user)
     tweet = result.text
     # print('ユーザーのコメント:' + tweet)
-    try:
-        if any(map(tweet.__contains__, ('代行', 'チート', 'コーチング', 'グリッチ', 'ban', 'hack', '実績', '業界', '円', '値段'))):
-            print('代行・チートは除外します')
-        else:
+
+    if any(map(tweet.__contains__, ('代行', 'チート', 'コーチング', 'グリッチ', 'ban', 'hack', '実績', '業界', '円', '値段', '格安', '販売'))):
+        print('代行・チートは除外します')
+    else:
+        try:
             api.create_favorite(user_id)
             print(user + 'を「いいね」をしました\n\n')
+        except:
+            print(user + 'はいいねできませんでした\n')
+
+        try:
             api.create_friendship(username)
             print(user + 'をフォローをしました\n\n')
-    except:
-        print(user + 'は既にフォローしています\n\n')
+        except:
+            print(user + 'は既にフォローしています\n')
 
 for follower in tweepy.Cursor(api.followers).items():
     follower.follow()
