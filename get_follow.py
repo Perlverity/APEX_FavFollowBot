@@ -2,7 +2,6 @@ import json
 from time import sleep
 import time
 
-# import settings
 import tweepy
 import os
 import re
@@ -17,12 +16,18 @@ CS = CONSUMER_SECRET
 AT = ACCESS_TOKEN
 ATS = ACCESS_TOKEN_SECRET
 
+# import settings
+# CK = settings.CONSUMER_KEY
+# CS = settings.CONSUMER_SECRET
+# AT = settings.ACCESS_TOKEN
+# ATS = settings.ACCESS_TOKEN_SECRET
+
 auth = tweepy.OAuthHandler(CK, CS)
 auth.set_access_token(AT, ATS)
-api = tweepy.API(auth)
+api = tweepy.API(auth, wait_on_rate_limit=True)
 word = {1: '#Apex自己紹介カード', 2: '絵師', 3: 'イラスト'}
 # 絵師 pixiv イラスト
-set_count = 5
+set_count = 1
 set_result_type = ('recent')
 results = api.search(q=word[1], count=set_count, result_type=set_result_type, lang='ja')
 
