@@ -3,8 +3,8 @@
 ```
 git push origin main
 git push heroku main
-heroku git:remote -a floating-peak-49444
-heroku run --app floating-peak-49444 python get_follow.py
+heroku git:remote -a apex-favfollowbot
+heroku run --app apex-favfollowbot python get_follow.py
 ```
 
 ***

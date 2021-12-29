@@ -43,20 +43,15 @@ for result in results:
 
     if any(map(tweet.__contains__, ('代行', 'チート', 'コーチング', 'グリッチ', 'ban', 'hack', '実績', '業界', '円', '値段', '格安', '販売'))):
         print('代行・チートは除外します')
+
     else:
         try:
             api.create_favorite(user_id)
             api.retweet(tweet_id) #RTする
+            api.create_friendship(username)
             print(user + 'を「いいね」をしました\n\n')
+
         except:
             print(user + 'はいいねできませんでした\n')
-
-    time.sleep(3)
-
-        try:
-            api.create_friendship(username)
-            print(user + 'をフォローをしました\n\n')
-        except:
-            print(user + 'は既にフォローしています\n')
 
     time.sleep(3)
