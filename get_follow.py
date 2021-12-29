@@ -41,7 +41,7 @@ for result in results:
     tweet_id = result.id
     # print('ユーザーのコメント:' + tweet)
 
-    if any(map(tweet.__contains__, ('代行', 'チート', 'コーチング', 'グリッチ', 'ban', 'hack', '実績', '業界', '円', '値段', '格安', '販売', '手伝い'))):
+    if any(map(tweet.__contains__, ('代行', 'チート', 'コーチング', 'グリッチ', 'ban', 'hack', '実績', '業界', '円', '値段', '格安', '販売', '手伝い', '抽選', '配信'))):
         print('代行・チートは除外します')
 
     else:
