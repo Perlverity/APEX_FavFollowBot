@@ -1,10 +1,12 @@
 # APEX_FavFollowBot
 ***
-```
+
+```python:main.py
 git push origin main
 git push heroku main
 heroku git:remote -a apex-favfollowbot
 heroku run --app apex-favfollowbot python get_follow.py
+heroku logs --app apex-favfollowbot
 ```
 
 ***
@@ -22,3 +24,6 @@ https://kurozumi.github.io/tweepy/code_snippet.html#followall
 
 ### Herokuで環境変数の設定と読み込み
 https://cream-kuchen.hatenablog.com/entry/heroku_set_config_vars
+
+### Twitter 自動 bot の作り方
+https://lemon818.com/python-twitter-bot/#Twitter_Bot-5# TweetBot_YamiYami
