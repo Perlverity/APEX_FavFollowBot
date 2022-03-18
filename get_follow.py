@@ -25,11 +25,12 @@ ATS = ACCESS_TOKEN_SECRET
 auth = tweepy.OAuthHandler(CK, CS)
 auth.set_access_token(AT, ATS)
 api = tweepy.API(auth, wait_on_rate_limit=True)
-word = {1: '#Apex自己紹介カード', 2: '絵師', 3: 'イラスト'}
+word = {1: '#メンヘラさんと繋がりたい', 2: '絵師', 3: 'イラスト'}
 # 絵師 pixiv イラスト
 set_count = 1
 set_result_type = ('recent')
-results = api.search(q=word[1], count=set_count, result_type=set_result_type, lang='ja')
+results = api.search(q=word[1], count=set_count,
+                     result_type=set_result_type, lang='ja')
 
 for result in results:
     username = result.user._json['screen_name']
@@ -41,17 +42,13 @@ for result in results:
     tweet_id = result.id
     # print('ユーザーのコメント:' + tweet)
 
-    if any(map(tweet.__contains__, ('代行', 'チート', 'コーチング', 'グリッチ', 'ban', 'hack', '実績', '業界', '円', '値段', '格安', '販売', '手伝い', '抽選', '配信'))):
-        print('代行・チートは除外します')
+    try:
+        api.create_favorite(user_id)
+        api.retweet(tweet_id)  # RTする
+        api.create_friendship(username)
+        print(user + 'を「いいね」をしました\n\n')
 
-    else:
-        try:
-            api.create_favorite(user_id)
-            api.retweet(tweet_id) #RTする
-            api.create_friendship(username)
-            print(user + 'を「いいね」をしました\n\n')
-
-        except:
-            print(user + 'はいいねできませんでした\n')
+    except:
+        print(user + 'はいいねできませんでした\n')
 
     time.sleep(3)
