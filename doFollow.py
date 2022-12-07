@@ -45,7 +45,7 @@ result_list = list(set(follower_list) - set(friend_list))
 for user_id in result_list:
 
     cnt = cnt + 1
-    print(user_id)
+    # print(user_id)
 
     try:
         if cnt < 3:
