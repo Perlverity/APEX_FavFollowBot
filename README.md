@@ -25,11 +25,3 @@ https://kurozumi.github.io/tweepy/code_snippet.html#followall
 ### Herokuで環境変数の設定と読み込み
 https://cream-kuchen.hatenablog.com/entry/heroku_set_config_vars
 
-### Twitter 自動 bot の作り方
-<<<<<<< HEAD
-https://lemon818.com/python-twitter-bot/#Twitter_Bot-5
-=======
-https://lemon818.com/python-twitter-bot/#Twitter_Bot-5# TweetBot_YamiYami
-# TweetBot_YamiYami
-# TweetBot_YamiYami
->>>>>>> 10e6e4e1d6696141d69d7ab58e67cae362f3f6fc
